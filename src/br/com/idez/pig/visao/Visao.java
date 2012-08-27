@@ -35,7 +35,7 @@ public class Visao {
 					fachada.criarJogo();
 				} else {
 					System.out.println();
-					System.out.println("Valor da Jogada: "
+					System.out.println("Valor Dado: "
 							+ fachada.getValoresJogada());
 				}
 			} else if (opcao.equalsIgnoreCase("P")) {
