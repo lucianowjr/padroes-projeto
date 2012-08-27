@@ -21,16 +21,36 @@ public class Visao {
 
 		boolean continuar = true;
 
-		while (continuar) {
+		while (continuar) {		
 			imprimirPlacares();
 			String opcao = imprimirOpcoes();
 			if (opcao.equalsIgnoreCase("J")) {
-				// Jogar
-			} else {
-				// Parar
-			}
-
-			if (fachada.getPlacarGeral() >= 100) {
+				fachada.jogar();
+				if (fachada.isPig()) {
+					System.out.println();
+					System.out.println("PIG!");
+				} else if (fachada.getPlacarGeral() >= 100) {
+					System.out.println("Você Ganhou! "
+							+ fachada.getNumeroJogadas() + " jogadas.");
+					fachada.criarJogo();
+				} else {
+					System.out.println();
+					System.out.println("Valor da Jogada: "
+							+ fachada.getValoresJogada());
+				}
+			} else if (opcao.equalsIgnoreCase("P")) {
+				fachada.parar();
+				if (fachada.getPlacarGeral() >= 100) {
+					System.out.println("Você ganhou com "
+							+ fachada.getNumeroJogadas() + " jogadas!");
+					
+					System.out.println();
+					System.out.println("# NOVO JOGO #");
+					System.out.println();
+					
+					fachada.criarJogo();
+				}
+			} else if (opcao.equalsIgnoreCase("S")) {
 				continuar = false;
 			}
 		}
@@ -57,7 +77,7 @@ public class Visao {
 		return retorno;
 	}
 
-	private void imprimirPlacares() {
+	private void imprimirPlacares() {		
 		System.out.println("Placar Geral: " + fachada.getPlacarGeral());
 		System.out.println("Placar Rodada: " + fachada.getPlacarRodada());
 	}

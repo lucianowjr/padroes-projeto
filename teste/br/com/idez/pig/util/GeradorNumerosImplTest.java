@@ -13,9 +13,9 @@ public class GeradorNumerosImplTest {
 
 	@Test
 	public void getNumeroAleatorioTeste() {
-		List<Integer> lista = new ArrayList<>();
+		List<Integer> lista = new ArrayList<Integer>();
 		for (int i = 0; i <= 100; i++) {
-			lista.add(new Integer(gerador.getNumeroAleatorio(1, 6)));
+			lista.add(gerador.getNumeroAleatorio(1, 1, 6).get(0));
 		}
 
 		Assert.assertEquals(true, lista.contains(new Integer(1)));

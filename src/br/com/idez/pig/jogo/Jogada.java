@@ -1,15 +1,20 @@
 package br.com.idez.pig.jogo;
 
+import java.util.List;
+
+import br.com.idez.pig.util.GeradorNumerosImpl;
+import br.com.idez.pig.util.IGeradorNumeros;
+
 public class Jogada {
 
-	private int valor;
+	private List<Integer> valores;
+	IGeradorNumeros gerador = new GeradorNumerosImpl();
 
-	public boolean isPig() {
-		if (this.valor == 1) {
-			return true;
-		} else {
-			return false;
-		}
+	public Jogada(int numeroDeDados, int inicio, int fim) {
+		this.valores = gerador.getNumeroAleatorio(numeroDeDados, inicio, fim);	}
+
+	public List<Integer> getValores() {
+		return valores;
 	}
 
 }
