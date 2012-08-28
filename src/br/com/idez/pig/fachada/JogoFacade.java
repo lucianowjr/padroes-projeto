@@ -1,10 +1,13 @@
 package br.com.idez.pig.fachada;
 
 import br.com.idez.pig.jogo.Jogo;
+import br.com.idez.pig.validacao.GerenciadorValidadores;
+import br.com.idez.pig.validacao.Validador;
 
 public class JogoFacade {
 
 	private Jogo jogo;
+	private GerenciadorValidadores gerenciadorValidadores = new GerenciadorValidadores();
 
 	public void criarJogo() {
 		this.jogo = new Jogo();
@@ -44,4 +47,17 @@ public class JogoFacade {
 	public String getNumeroJogadas() {
 		return this.jogo.getNumeroJogadas();
 	}
+
+	public Jogo getJogo() {
+		return jogo;
+	}
+
+	public Validador gerarValidadorJogarParar() {
+		return gerenciadorValidadores.gerarValidadorJogarParar();
+	}
+
+	public Validador gerarValidadorSimNao() {
+		return gerenciadorValidadores.gerarValidadorSimNao();
+	}
+
 }

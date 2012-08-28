@@ -1,10 +1,12 @@
 package br.com.idez.pig.jogo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Jogo {
 
 	private Rodada rodadaAtual;
+	private List<Jogador> jogadores;
 	private int placarGeral = 0;
 	private int numeroDeDados;
 	private int inicio;
@@ -13,11 +15,12 @@ public class Jogo {
 
 	public Jogo() {
 		this.rodadaAtual = new Rodada();
+		this.jogadores = new ArrayList<Jogador>();
 		this.placarGeral = 0;
 		this.numeroDeDados = 1;
 		this.inicio = 1;
 		this.fim = 6;
-		this.numeroJogadas = 0;
+		this.numeroJogadas = 0;		
 	}
 
 	public int getPlacarRodada() {
